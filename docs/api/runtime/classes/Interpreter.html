@@ -1,0 +1,937 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Interpreter | @algo-builder/runtime</title>
+	<meta name="description" content="Documentation for @algo-builder/runtime">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="../index.html" class="title">@algo-builder/runtime</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="../modules.html">@algo-builder/runtime</a>
+				</li>
+				<li>
+					<a href="Interpreter.html">Interpreter</a>
+				</li>
+			</ul>
+			<h1>Class Interpreter</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Interpreter parses and executes a TEAL code. Each transaction is using a new instance of
+							interpreter and doesn&#39;t share the interpreter state. When executing the transaction
+							we create a Context (<code>ctx</code>) and pass it to the interpreter. It encapsulates
+							runtime state and the transaction group state (eg shared scratch space).
+							Interpreter must not modify the <code>runtime</code> - the latter will be updated during the context
+						commit phase once all transactions in the groups succeed.</p>
+					</div>
+				</div>
+			</section>
+			<section class="tsd-panel tsd-hierarchy">
+				<h3>Hierarchy</h3>
+				<ul class="tsd-hierarchy">
+					<li>
+						<span class="target">Interpreter</span>
+					</li>
+				</ul>
+			</section>
+			<section class="tsd-panel-group tsd-index-group">
+				<h2>Index</h2>
+				<section class="tsd-panel tsd-index-panel">
+					<div class="tsd-index-content">
+						<section class="tsd-index-section ">
+							<h3>Constructors</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="Interpreter.html#constructor" class="tsd-kind-icon">constructor</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Properties</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#bytecblock" class="tsd-kind-icon">bytecblock</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#callStack" class="tsd-kind-icon">call<wbr>Stack</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#gas" class="tsd-kind-icon">gas</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#instructionIndex" class="tsd-kind-icon">instruction<wbr>Index</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#instructions" class="tsd-kind-icon">instructions</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#intcblock" class="tsd-kind-icon">intcblock</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#labelMap" class="tsd-kind-icon">label<wbr>Map</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#length" class="tsd-kind-icon">length</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#lineToCost" class="tsd-kind-icon">line<wbr>ToCost</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#runtime" class="tsd-kind-icon">runtime</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#scratch" class="tsd-kind-icon">scratch</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#stack" class="tsd-kind-icon">stack</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="Interpreter.html#tealVersion" class="tsd-kind-icon">teal<wbr>Version</a></li>
+							</ul>
+						</section>
+						<section class="tsd-index-section ">
+							<h3>Methods</h3>
+							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#assertValidTxArray" class="tsd-kind-icon">assert<wbr>Valid<wbr>TxArray</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#execute" class="tsd-kind-icon">execute</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#getAccount" class="tsd-kind-icon">get<wbr>Account</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#getApp" class="tsd-kind-icon">get<wbr>App</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#getAppIDByReference" class="tsd-kind-icon">get<wbr>AppIDBy<wbr>Reference</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#getAssetDef" class="tsd-kind-icon">get<wbr>Asset<wbr>Def</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#getAssetIDByReference" class="tsd-kind-icon">get<wbr>AssetIDBy<wbr>Reference</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#getGlobalState" class="tsd-kind-icon">get<wbr>Global<wbr>State</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#jumpForward" class="tsd-kind-icon">jump<wbr>Forward</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#jumpToLabel" class="tsd-kind-icon">jump<wbr>ToLabel</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#mapLabelWithIndexes" class="tsd-kind-icon">map<wbr>Label<wbr>With<wbr>Indexes</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#printStack" class="tsd-kind-icon">print<wbr>Stack</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="Interpreter.html#setGlobalState" class="tsd-kind-icon">set<wbr>Global<wbr>State</a></li>
+							</ul>
+						</section>
+					</div>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Constructors</h2>
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class">
+					<a name="constructor" class="tsd-anchor"></a>
+					<h3>constructor</h3>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Interpreter<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="Interpreter.html" class="tsd-signature-type" data-tsd-kind="Class">Interpreter</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L45">packages/runtime/src/interpreter/interpreter.ts:45</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <a href="Interpreter.html" class="tsd-signature-type" data-tsd-kind="Class">Interpreter</a></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="bytecblock" class="tsd-anchor"></a>
+					<h3>bytecblock</h3>
+					<div class="tsd-signature tsd-kind-icon">bytecblock<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Uint8Array</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L33">packages/runtime/src/interpreter/interpreter.ts:33</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="callStack" class="tsd-anchor"></a>
+					<h3>call<wbr>Stack</h3>
+					<div class="tsd-signature tsd-kind-icon">call<wbr>Stack<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Stack</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L42">packages/runtime/src/interpreter/interpreter.ts:42</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="gas" class="tsd-anchor"></a>
+					<h3>gas</h3>
+					<div class="tsd-signature tsd-kind-icon">gas<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L30">packages/runtime/src/interpreter/interpreter.ts:30</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="instructionIndex" class="tsd-anchor"></a>
+					<h3>instruction<wbr>Index</h3>
+					<div class="tsd-signature tsd-kind-icon">instruction<wbr>Index<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L38">packages/runtime/src/interpreter/interpreter.ts:38</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="instructions" class="tsd-anchor"></a>
+					<h3>instructions</h3>
+					<div class="tsd-signature tsd-kind-icon">instructions<span class="tsd-signature-symbol">:</span> <a href="../modules/types.html#Operator" class="tsd-signature-type" data-tsd-kind="Type alias">Operator</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L37">packages/runtime/src/interpreter/interpreter.ts:37</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="intcblock" class="tsd-anchor"></a>
+					<h3>intcblock</h3>
+					<div class="tsd-signature tsd-kind-icon">intcblock<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">BigInt</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L34">packages/runtime/src/interpreter/interpreter.ts:34</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="labelMap" class="tsd-anchor"></a>
+					<h3>label<wbr>Map</h3>
+					<div class="tsd-signature tsd-kind-icon">label<wbr>Map<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Map</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">, </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">&gt;</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L43">packages/runtime/src/interpreter/interpreter.ts:43</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="length" class="tsd-anchor"></a>
+					<h3>length</h3>
+					<div class="tsd-signature tsd-kind-icon">length<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L31">packages/runtime/src/interpreter/interpreter.ts:31</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="lineToCost" class="tsd-anchor"></a>
+					<h3>line<wbr>ToCost</h3>
+					<div class="tsd-signature tsd-kind-icon">line<wbr>ToCost<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-symbol">{}</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L29">packages/runtime/src/interpreter/interpreter.ts:29</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-type-declaration">
+						<h4>Type declaration</h4>
+						<ul class="tsd-parameters">
+							<li class="tsd-parameter-index-signature">
+								<h5><span class="tsd-signature-symbol">[</span>key: <span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">]: </span><span class="tsd-signature-type">number</span></h5>
+							</li>
+						</ul>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="runtime" class="tsd-anchor"></a>
+					<h3>runtime</h3>
+					<div class="tsd-signature tsd-kind-icon">runtime<span class="tsd-signature-symbol">:</span> <a href="Runtime.html" class="tsd-signature-type" data-tsd-kind="Class">Runtime</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L39">packages/runtime/src/interpreter/interpreter.ts:39</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="scratch" class="tsd-anchor"></a>
+					<h3>scratch</h3>
+					<div class="tsd-signature tsd-kind-icon">scratch<span class="tsd-signature-symbol">:</span> <a href="../modules/types.html#StackElem" class="tsd-signature-type" data-tsd-kind="Type alias">StackElem</a><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L35">packages/runtime/src/interpreter/interpreter.ts:35</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="stack" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagReadonly">Readonly</span> stack</h3>
+					<div class="tsd-signature tsd-kind-icon">stack<span class="tsd-signature-symbol">:</span> <a href="../modules/types.html#TEALStack" class="tsd-signature-type" data-tsd-kind="Type alias">TEALStack</a></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L27">packages/runtime/src/interpreter/interpreter.ts:27</a></li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
+					<a name="tealVersion" class="tsd-anchor"></a>
+					<h3>teal<wbr>Version</h3>
+					<div class="tsd-signature tsd-kind-icon">teal<wbr>Version<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L28">packages/runtime/src/interpreter/interpreter.ts:28</a></li>
+						</ul>
+					</aside>
+				</section>
+			</section>
+			<section class="tsd-panel-group tsd-member-group ">
+				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="assertValidTxArray" class="tsd-anchor"></a>
+					<h3>assert<wbr>Valid<wbr>TxArray</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">assert<wbr>Valid<wbr>TxArray<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L352">packages/runtime/src/interpreter/interpreter.ts:352</a></li>
+								</ul>
+							</aside>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="execute" class="tsd-anchor"></a>
+					<h3>execute</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">execute<span class="tsd-signature-symbol">(</span>program<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, mode<span class="tsd-signature-symbol">: </span><a href="../enums/types.ExecutionMode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">ExecutionMode</a>, runtime<span class="tsd-signature-symbol">: </span><a href="Runtime.html" class="tsd-signature-type" data-tsd-kind="Class">Runtime</a>, debugStack<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L389">packages/runtime/src/interpreter/interpreter.ts:389</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>This function executes TEAL code after parsing</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>program: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>mode: <a href="../enums/types.ExecutionMode.html" class="tsd-signature-type" data-tsd-kind="Enumeration">ExecutionMode</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>: execution mode of TEAL code (Stateless or Stateful)</p>
+									</div>
+								</li>
+								<li>
+									<h5>runtime: <a href="Runtime.html" class="tsd-signature-type" data-tsd-kind="Class">Runtime</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>: runtime object</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> debugStack: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getAccount" class="tsd-anchor"></a>
+					<h3>get<wbr>Account</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Account<span class="tsd-signature-symbol">(</span>accountRef<span class="tsd-signature-symbol">: </span><a href="../modules/types.html#StackElem" class="tsd-signature-type" data-tsd-kind="Type alias">StackElem</a>, line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/types.AccountStoreI.html" class="tsd-signature-type" data-tsd-kind="Interface">AccountStoreI</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L129">packages/runtime/src/interpreter/interpreter.ts:129</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Queries account by accountIndex or <code>ctx.tx.snd</code> (if <code>accountIndex==0</code>).
+										If account address is passed, then queries account by address.
+									Throws exception if account is not found.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>accountRef: <a href="../modules/types.html#StackElem" class="tsd-signature-type" data-tsd-kind="Type alias">StackElem</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>index of account to fetch from account list</p>
+									</div>
+								</li>
+								<li>
+									<h5>line: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>line number
+										NOTE: index 0 represents txn sender account</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/types.AccountStoreI.html" class="tsd-signature-type" data-tsd-kind="Interface">AccountStoreI</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getApp" class="tsd-anchor"></a>
+					<h3>get<wbr>App</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>App<span class="tsd-signature-symbol">(</span>appID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="../interfaces/types.SSCAttributesM.html" class="tsd-signature-type" data-tsd-kind="Interface">SSCAttributesM</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L82">packages/runtime/src/interpreter/interpreter.ts:82</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Queries app (SSCAttributesM) from state. Throws TEAL.APP_NOT_FOUND if app is not found.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>appID: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Application Index</p>
+									</div>
+								</li>
+								<li>
+									<h5>line: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <a href="../interfaces/types.SSCAttributesM.html" class="tsd-signature-type" data-tsd-kind="Interface">SSCAttributesM</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getAppIDByReference" class="tsd-anchor"></a>
+					<h3>get<wbr>AppIDBy<wbr>Reference</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AppIDBy<wbr>Reference<span class="tsd-signature-symbol">(</span>appRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, foreign<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, op<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Op</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L166">packages/runtime/src/interpreter/interpreter.ts:166</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Queries appIndex by app reference (offset to foreignApps array OR index directly)</p>
+									<ul>
+										<li>Since TEALv4, any reference is supported (but it must be present in foreignApps array)</li>
+										<li>For older versions, if foreign === true, reference is treated as offset to foreignApps array,
+										otherwise it is treated as a direct reference.</li>
+									</ul>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>appRef: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an offset to foreign app array OR appID</p>
+									</div>
+								</li>
+								<li>
+									<h5>foreign: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>for older teal versions(&lt;= 3), foreign bool represent if ref is
+										treated as an offset/appIndex</p>
+									</div>
+								</li>
+								<li>
+									<h5>line: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>line number
+										<a href="https://developer.algorand.org/articles/introducing-algorand-virtual-machine-avm-09-release/">https://developer.algorand.org/articles/introducing-algorand-virtual-machine-avm-09-release/</a></p>
+									</div>
+								</li>
+								<li>
+									<h5>op: <span class="tsd-signature-type">Op</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getAssetDef" class="tsd-anchor"></a>
+					<h3>get<wbr>Asset<wbr>Def</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Asset<wbr>Def<span class="tsd-signature-symbol">(</span>assetId<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AssetParams</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L68">packages/runtime/src/interpreter/interpreter.ts:68</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Queries ASA Definitions data by assetID.  Returns undefined if ASA is not deployed.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>assetId: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>Asset Index</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">AssetParams</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getAssetIDByReference" class="tsd-anchor"></a>
+					<h3>get<wbr>AssetIDBy<wbr>Reference</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>AssetIDBy<wbr>Reference<span class="tsd-signature-symbol">(</span>assetRef<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, foreign<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">boolean</span>, line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, op<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Op</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L212">packages/runtime/src/interpreter/interpreter.ts:212</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Queries assetIndex by asset reference (offset to foreignAssets array OR index directly)</p>
+									<ul>
+										<li>Since TEALv4, any reference is supported (but it must be present in foreign assets array)</li>
+										<li>For older versions, if foreign === true, reference is treated as offset to foreignAssets array,
+										otherwise it is treated as a direct reference.</li>
+									</ul>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>assetRef: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>an offset to foreign assets array OR assetID</p>
+									</div>
+								</li>
+								<li>
+									<h5>foreign: <span class="tsd-signature-type">boolean</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>for older teal versions(&lt;= 3), foreign bool represent if
+										ref is treated as an offset/assetIndex</p>
+									</div>
+								</li>
+								<li>
+									<h5>line: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>line number
+										<a href="https://developer.algorand.org/articles/introducing-algorand-virtual-machine-avm-09-release/">https://developer.algorand.org/articles/introducing-algorand-virtual-machine-avm-09-release/</a></p>
+									</div>
+								</li>
+								<li>
+									<h5>op: <span class="tsd-signature-type">Op</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">number</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="getGlobalState" class="tsd-anchor"></a>
+					<h3>get<wbr>Global<wbr>State</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Global<wbr>State<span class="tsd-signature-symbol">(</span>appID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span>, line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../modules/types.html#StackElem" class="tsd-signature-type" data-tsd-kind="Type alias">StackElem</a></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L245">packages/runtime/src/interpreter/interpreter.ts:245</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Queries application by application index. Returns undefined if app is not found.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>appID: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></h5>
+								</li>
+								<li>
+									<h5>line: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">undefined</span><span class="tsd-signature-symbol"> | </span><a href="../modules/types.html#StackElem" class="tsd-signature-type" data-tsd-kind="Type alias">StackElem</a></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="jumpForward" class="tsd-anchor"></a>
+					<h3>jump<wbr>Forward</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">jump<wbr>Forward<span class="tsd-signature-symbol">(</span>label<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L276">packages/runtime/src/interpreter/interpreter.ts:276</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Description: moves instruction index to &quot;label&quot;, throws error if label not found</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>label: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>line: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="jumpToLabel" class="tsd-anchor"></a>
+					<h3>jump<wbr>ToLabel</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">jump<wbr>ToLabel<span class="tsd-signature-symbol">(</span>label<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L299">packages/runtime/src/interpreter/interpreter.ts:299</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Description: moves instruction index to &quot;label&quot;, throws error if label not found</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>label: <span class="tsd-signature-type">string</span></h5>
+								</li>
+								<li>
+									<h5>line: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="mapLabelWithIndexes" class="tsd-anchor"></a>
+					<h3>map<wbr>Label<wbr>With<wbr>Indexes</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">map<wbr>Label<wbr>With<wbr>Indexes<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L338">packages/runtime/src/interpreter/interpreter.ts:338</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Maps labels with indexes according to instructions array</p>
+								</div>
+							</div>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="printStack" class="tsd-anchor"></a>
+					<h3>print<wbr>Stack</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">print<wbr>Stack<span class="tsd-signature-symbol">(</span>instruction<span class="tsd-signature-symbol">: </span><a href="../modules/types.html#Operator" class="tsd-signature-type" data-tsd-kind="Type alias">Operator</a>, debugStack<span class="tsd-signature-symbol">?: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L323">packages/runtime/src/interpreter/interpreter.ts:323</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>logs TEALStack upto depth = debugStack to console</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>instruction: <a href="../modules/types.html#Operator" class="tsd-signature-type" data-tsd-kind="Type alias">Operator</a></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>interpreter opcode instance</p>
+									</div>
+								</li>
+								<li>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> debugStack: <span class="tsd-signature-type">number</span></h5>
+									<div class="tsd-comment tsd-typography">
+										<p>max no. of elements to print from top of stack</p>
+									</div>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
+					<a name="setGlobalState" class="tsd-anchor"></a>
+					<h3>set<wbr>Global<wbr>State</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
+						<li class="tsd-signature tsd-kind-icon">set<wbr>Global<wbr>State<span class="tsd-signature-symbol">(</span>appID<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span>, value<span class="tsd-signature-symbol">: </span><a href="../modules/types.html#StackElem" class="tsd-signature-type" data-tsd-kind="Type alias">StackElem</a>, line<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/scale-it/algo-builder/blob/551f3910/packages/runtime/src/interpreter/interpreter.ts#L259">packages/runtime/src/interpreter/interpreter.ts:259</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Updates app global state.
+									Throws error if app is not found.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>appID: <span class="tsd-signature-type">number</span></h5>
+								</li>
+								<li>
+									<h5>key: <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">Uint8Array</span></h5>
+								</li>
+								<li>
+									<h5>value: <a href="../modules/types.html#StackElem" class="tsd-signature-type" data-tsd-kind="Type alias">StackElem</a></h5>
+								</li>
+								<li>
+									<h5>line: <span class="tsd-signature-type">number</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
+						</li>
+					</ul>
+				</section>
+			</section>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+					<li class=" tsd-kind-class">
+						<a href="AccountStore.html" class="tsd-kind-icon">Account<wbr>Store</a>
+					</li>
+				</ul>
+				<ul class="current">
+					<li class="current tsd-kind-class">
+						<a href="Interpreter.html" class="tsd-kind-icon">Interpreter</a>
+						<ul>
+							<li class=" tsd-kind-constructor tsd-parent-kind-class">
+								<a href="Interpreter.html#constructor" class="tsd-kind-icon">constructor</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#bytecblock" class="tsd-kind-icon">bytecblock</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#callStack" class="tsd-kind-icon">call<wbr>Stack</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#gas" class="tsd-kind-icon">gas</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#instructionIndex" class="tsd-kind-icon">instruction<wbr>Index</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#instructions" class="tsd-kind-icon">instructions</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#intcblock" class="tsd-kind-icon">intcblock</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#labelMap" class="tsd-kind-icon">label<wbr>Map</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#length" class="tsd-kind-icon">length</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#lineToCost" class="tsd-kind-icon">line<wbr>ToCost</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#runtime" class="tsd-kind-icon">runtime</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#scratch" class="tsd-kind-icon">scratch</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#stack" class="tsd-kind-icon">stack</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-class">
+								<a href="Interpreter.html#tealVersion" class="tsd-kind-icon">teal<wbr>Version</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#assertValidTxArray" class="tsd-kind-icon">assert<wbr>Valid<wbr>TxArray</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#execute" class="tsd-kind-icon">execute</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#getAccount" class="tsd-kind-icon">get<wbr>Account</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#getApp" class="tsd-kind-icon">get<wbr>App</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#getAppIDByReference" class="tsd-kind-icon">get<wbr>AppIDBy<wbr>Reference</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#getAssetDef" class="tsd-kind-icon">get<wbr>Asset<wbr>Def</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#getAssetIDByReference" class="tsd-kind-icon">get<wbr>AssetIDBy<wbr>Reference</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#getGlobalState" class="tsd-kind-icon">get<wbr>Global<wbr>State</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#jumpForward" class="tsd-kind-icon">jump<wbr>Forward</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#jumpToLabel" class="tsd-kind-icon">jump<wbr>ToLabel</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#mapLabelWithIndexes" class="tsd-kind-icon">map<wbr>Label<wbr>With<wbr>Indexes</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#printStack" class="tsd-kind-icon">print<wbr>Stack</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class">
+								<a href="Interpreter.html#setGlobalState" class="tsd-kind-icon">set<wbr>Global<wbr>State</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<ul class="after-current">
+					<li class=" tsd-kind-class">
+						<a href="LogicSigAccount.html" class="tsd-kind-icon">Logic<wbr>Sig<wbr>Account</a>
+					</li>
+					<li class=" tsd-kind-class">
+						<a href="Runtime.html" class="tsd-kind-icon">Runtime</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#checkIfAssetDeletionTx" class="tsd-kind-icon">check<wbr>IfAsset<wbr>Deletion<wbr>Tx</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#getPathFromDirRecursive" class="tsd-kind-icon">get<wbr>Path<wbr>From<wbr>Dir<wbr>Recursive</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#loadASAFile" class="tsd-kind-icon">loadASAFile</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#loadFromYamlFileSilent" class="tsd-kind-icon">load<wbr>From<wbr>Yaml<wbr>File<wbr>Silent</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#loadFromYamlFileSilentWithMessage" class="tsd-kind-icon">load<wbr>From<wbr>Yaml<wbr>File<wbr>Silent<wbr>With<wbr>Message</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#lsTreeWalk" class="tsd-kind-icon">ls<wbr>Tree<wbr>Walk</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#overrideASADef" class="tsd-kind-icon">overrideASADef</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#parseASADef" class="tsd-kind-icon">parseASADef</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#parseZodError" class="tsd-kind-icon">parse<wbr>Zod<wbr>Error</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#parser" class="tsd-kind-icon">parser</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#validateASADefs" class="tsd-kind-icon">validateASADefs</a>
+					</li>
+					<li class=" tsd-kind-function">
+						<a href="../modules.html#validateOptInAccNames" class="tsd-kind-icon">validate<wbr>Opt<wbr>InAcc<wbr>Names</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="../assets/js/main.js"></script>
+</body>
+</html>
